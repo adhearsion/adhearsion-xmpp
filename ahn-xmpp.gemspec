@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.email       = ["juandebravo@gmail.com", "ben@langfeld.me", "jsgoecke@voxeo.com"]
   s.homepage    = ""
   s.summary     = %q{This gem is an Adhearsion plugin that handles the XMPP related stuff}
-  s.description = %q{This gem is an Adhearsion plugin that handles the Drb related stuff}
+  s.description = %q{This gem is an Adhearsion plugin that handles the XMPP related stuff}
 
-  s.rubyforge_project = "ahn-drb"
+  s.rubyforge_project = "ahn-xmpp"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

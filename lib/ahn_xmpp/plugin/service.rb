@@ -13,7 +13,7 @@ module AhnXMPP
 
           Connection.extend Blather::DSL
 
-          Connection.start(config.jid, config.password, config.server, config.port)
+          Connection.start config.jid, config.password, config.server, config.port
         end
 
         ##

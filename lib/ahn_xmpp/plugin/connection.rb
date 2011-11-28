@@ -15,7 +15,7 @@ module AhnXMPP
         # @param [Integer] port
         def start(jid, password, server, port)
           Blather.logger = logger
-          setup_client_object(jid, password, server, port)
+          setup_client_object jid, password, server, port
           register_event_namespaces
           register_default_client_handlers
           Adhearsion::Events.register_callback(:after_initialized) do
