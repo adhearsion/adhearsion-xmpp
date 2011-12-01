@@ -10,9 +10,10 @@ rescue LoadError
   abort ""
 end
 
-require "ahn_xmpp/version"
-require "ahn_xmpp/plugin"
+require "adhearsion/xmpp/version"
+require "adhearsion/xmpp/plugin"
 
-module AhnXMPP
-
+module Adhearsion
+  module XMPP
+  end
 end

@@ -1,14 +1,14 @@
 require 'spec_helper'
 
-describe AhnXMPP::Plugin::Connection do
+describe Adhearsion::XMPP::Plugin::Connection do
 
   describe "while starting the connection" do
 
-    subject {AhnXMPP::Plugin::Connection}
+    subject {Adhearsion::XMPP::Plugin::Connection}
 
     let :blather_client do
       client = double(Blather::Client)
-      client.should_receive(:register_handler).twice.and_return true 
+      client.should_receive(:register_handler).twice.and_return true
       client
     end
 

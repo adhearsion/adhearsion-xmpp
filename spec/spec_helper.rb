@@ -1,8 +1,8 @@
-require 'ahn_xmpp'
+require 'adhearsion/xmpp'
 
-def reset_ahn_xmpp_config
-  Adhearsion.config[:ahn_xmpp].jid      = nil
-  Adhearsion.config[:ahn_xmpp].password = nil
-  Adhearsion.config[:ahn_xmpp].server   = "localhost"
-  Adhearsion.config[:ahn_xmpp].port     = 5222
+def reset_adhearsion_xmpp_config
+  Adhearsion.config[:adhearsion_xmpp].jid      = nil
+  Adhearsion.config[:adhearsion_xmpp].password = nil
+  Adhearsion.config[:adhearsion_xmpp].server   = "localhost"
+  Adhearsion.config[:adhearsion_xmpp].port     = 5222
 end

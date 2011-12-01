@@ -1,7 +1,7 @@
-ahn-xmpp
+adhearsion-xmpp
 ========
 
-ahn-xmpp is an Adhearsion Plugin providing XMPP connectivity.
+adhearsion-xmpp is an Adhearsion Plugin providing XMPP connectivity.
 
 Features
 --------
@@ -16,7 +16,7 @@ Requirements
 Install
 -------
 
-Add `ahn-xmpp` to your Adhearsion app's Gemfile.
+Add `adhearsion-xmpp` to your Adhearsion app's Gemfile.
 
 Configuration
 -------------
@@ -25,10 +25,10 @@ In your Adhearsion app configuration file, add the following values:
 
 ```ruby
 Adhearsion.config do |config|
-  config.ahn_xmpp.jid      = "valid-jid"
-  config.ahn_xmpp.password = "valid-password"
-  config.ahn_xmpp.host     = "valid-host"
-  config.ahn_xmpp.port     = "valid-port"
+  config.adhearsion_xmpp.jid      = "valid-jid"
+  config.adhearsion_xmpp.password = "valid-password"
+  config.adhearsion_xmpp.host     = "valid-host"
+  config.adhearsion_xmpp.port     = "valid-port"
 end
 ```
 
@@ -39,9 +39,9 @@ Original author: [Juan de Bravo](https://github.com/juandebravo)
 
 Links
 -----
-* [Source](https://github.com/adhearsion/ahn-xmpp)
-* [Documentation](http://rdoc.info/github/adhearsion/ahn-xmpp/master/frames)
-* [Bug Tracker](https://github.com/adhearsion/ahn-xmpp/issues)
+* [Source](https://github.com/adhearsion/adhearsion-xmpp)
+* [Documentation](http://rdoc.info/github/adhearsion/adhearsion-xmpp/master/frames)
+* [Bug Tracker](https://github.com/adhearsion/adhearsion-xmpp/issues)
 
 Note on Patches/Pull Requests
 -----------------------------
@@ -56,4 +56,4 @@ Note on Patches/Pull Requests
 Copyright
 ---------
 
-Check [License file](https://github.com/adhearsion/ahn-xmpp/blob/master/LICENSE)
+Check [License file](https://github.com/adhearsion/adhearsion-xmpp/blob/master/LICENSE)
