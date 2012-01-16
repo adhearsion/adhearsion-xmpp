@@ -15,5 +15,12 @@ require "adhearsion/xmpp/plugin"
 
 module Adhearsion
   module XMPP
+    extend ActiveSupport::Autoload
+    autoload :Plugin
+    autoload :Initializer
+
+    class << self
+      delegate :client, :to => Initializer
+    end
   end
 end
