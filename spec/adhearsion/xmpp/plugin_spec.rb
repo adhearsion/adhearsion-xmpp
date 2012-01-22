@@ -67,5 +67,17 @@ describe Adhearsion::XMPP::Plugin do
       Adhearsion::PunchblockPlugin.should_receive(:client).and_return :mock_client
       Adhearsion::XMPP.client.should be :mock_client
     end
+
+    it "should not attempt to start Punchblock's client on start" do
+      pending
+    end
+
+    it "should not attempt to start Punchblock's client on stop" do
+      pending
+    end
+  end
+
+  describe "when using a separate Blather connection" do
+    pending
   end
 end
