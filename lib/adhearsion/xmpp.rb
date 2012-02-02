@@ -1,7 +1,6 @@
 require "adhearsion"
 require "active_support/dependencies/autoload"
 require "adhearsion/xmpp/version"
-require "adhearsion/xmpp/plugin"
 
 module Adhearsion
   ##
