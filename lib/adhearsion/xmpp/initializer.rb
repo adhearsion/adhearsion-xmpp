@@ -1,5 +1,5 @@
  module Adhearsion
-  module XMPP
+  class XMPP < Adhearsion::Plugin
     class Initializer
       def initialize
         @config ||= Adhearsion.config[:xmpp]
