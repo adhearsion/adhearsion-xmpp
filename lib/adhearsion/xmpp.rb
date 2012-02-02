@@ -24,7 +24,10 @@ module Adhearsion
 
     # Include the XMPP service in plugins initialization process
     init :xmpp do
-      Initializer.new
+      xmpp = Initializer.new
+      run do
+        xmpp.run
+      end
     end
   end
 end
