@@ -3,10 +3,11 @@
     class Initializer
       def initialize
         @config ||= Adhearsion.config[:xmpp]
+        init_blather unless @config.use_punchblock
       end
 
       def run
-        @config.use_punchblock ? run_punchblock : run_blather
+        run_blather unless @config.use_punchblock
       end
 
       def start_punchblock
@@ -14,7 +15,7 @@
         nil
       end
 
-      def start_blather
+      def init_blather
         raise "Must supply a jid argument to the XMPP configuration" if (@config.jid.nil? || @config.jid.empty?)
         raise "Must supply a password argument to the XMPP configuration" if (@config.password.nil? || @config.password.empty?)
         raise "Must supply a server argument to the XMPP configuration" if (@config.server.nil? || @config.server.empty?)
@@ -27,12 +28,7 @@
       ##
       # Stop the XMPP connection
       def stop
-        @config.use_punchblock ? stop_punchblock : stop_blather
-      end
-
-      def stop_punchblock
-        # We don't actually want to stop Punchblock from here.
-        nil
+        stop_blather unless @config.use_punchblock
       end
 
       def stop_blather
