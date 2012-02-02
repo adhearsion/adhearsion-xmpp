@@ -24,11 +24,11 @@ module Adhearsion
 
     # Default configuration for XMPP connection.
     config :xmpp do
-      use_punchblock true       , :desc => "XMPP connection: re-use Punchblock's XMPP connection. Boolean."
-      jid            nil        , :desc => "XMPP connection: client/component JID to connect to. Must be a string"
-      password       nil        , :desc => "XMPP connection: password identifier. Must be a string"
-      server         "localhost", :desc => "XMPP connection: destination host. Must be a string"
-      port           5222       , :desc => "XMPP connection: destination port. Must be an integer"
+      use_punchblock true       , :desc => "Re-use Punchblock's XMPP connection. Boolean."
+      jid            nil        , :desc => "Client/component JID to connect to. String."
+      password       nil        , :desc => "Password identifier. String."
+      server         "localhost", :desc => "XMPP server hostname. May be omitted if server can be determined from JID. String."
+      port           5222       , :desc => "XMPP server port. May be omitted if server can be determined from JID. Integer."
 
     end
 
