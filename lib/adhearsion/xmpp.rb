@@ -17,8 +17,8 @@ module Adhearsion
       use_punchblock true       , :desc => "Re-use Punchblock's XMPP connection. Boolean."
       jid            nil        , :desc => "Client/component JID to connect to. String."
       password       nil        , :desc => "Password identifier. String."
-      server         "localhost", :desc => "XMPP server hostname. May be omitted if server can be determined from JID. String."
-      port           5222       , :desc => "XMPP server port. May be omitted if server can be determined from JID. Integer."
+      server         nil        , :desc => "XMPP server hostname. May be omitted if server can be determined from JID. String."
+      port           nil        , :desc => "XMPP server port. May be omitted if server can be determined from JID. Integer."
 
     end
 
