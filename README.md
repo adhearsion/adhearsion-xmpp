@@ -25,10 +25,10 @@ In your Adhearsion app configuration file, add the following values:
 
 ```ruby
 Adhearsion.config do |config|
-  config.adhearsion.jid      = "valid-jid"
-  config.adhearsion.password = "valid-password"
-  config.adhearsion.host     = "valid-host"
-  config.adhearsion.port     = "valid-port"
+  config.xmpp.jid      = "valid-jid"
+  config.xmpp.password = "valid-password"
+  config.xmpp.host     = "valid-host"
+  config.xmpp.port     = "valid-port"
 end
 ```
 
