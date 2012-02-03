@@ -11,6 +11,8 @@ module Adhearsion
     autoload :Plugin
     autoload :Connection
 
+    cattr_accessor :plugin
+
     # Default configuration for XMPP connection.
     config :xmpp do
       use_punchblock true       , :desc => "Re-use Punchblock's XMPP connection. Boolean."
@@ -18,14 +20,21 @@ module Adhearsion
       password       nil        , :desc => "Password identifier. String."
       server         nil        , :desc => "XMPP server hostname. May be omitted if server can be determined from JID. String."
       port           nil        , :desc => "XMPP server port. May be omitted if server can be determined from JID. Integer."
-
     end
+
+    delegate :connection, :to => Plugin
 
     # Include the XMPP service in plugins initialization process
     init :xmpp do
-      plugin = Plugin.new
+      self.plugin = Plugin.new
       run do
-        plugin.run
+        self.plugin.run
+      end
+    end
+
+    class << self
+      def method_missing(m, *args, &block)
+        m.send m, *args, &block
       end
     end
   end
