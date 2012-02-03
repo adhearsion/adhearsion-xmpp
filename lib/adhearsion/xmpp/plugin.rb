@@ -1,6 +1,6 @@
- module Adhearsion
-  class XMPP < Adhearsion::Plugin
-    class Initializer
+module Adhearsion
+  class XMPP
+    class Plugin < Adhearsion::Plugin
       def initialize
         @config ||= Adhearsion.config[:xmpp]
         init_blather unless @config.use_punchblock

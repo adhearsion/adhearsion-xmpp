@@ -6,9 +6,9 @@ module Adhearsion
   ##
   # Adhearsion Plugin that defines the XMPP configuration options
   # and includes a hook to start the XMPP service in Adhearsion initialization process
-  class XMPP < Adhearsion::Plugin
+  class XMPP
     extend ActiveSupport::Autoload
-    autoload :Initializer
+    autoload :Plugin
     autoload :Connection
 
     # Default configuration for XMPP connection.
@@ -23,9 +23,9 @@ module Adhearsion
 
     # Include the XMPP service in plugins initialization process
     init :xmpp do
-      xmpp = Initializer.new
+      plugin = Plugin.new
       run do
-        xmpp.run
+        plugin.run
       end
     end
   end

@@ -1,5 +1,5 @@
 module Adhearsion
-  class XMPP < Adhearsion::Plugin
+  class XMPP
     VERSION = "0.1.0"
   end
 end
