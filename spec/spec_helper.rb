@@ -6,8 +6,8 @@ module Adhearsion
 end
 
 def reset_adhearsion_xmpp_config
-  Adhearsion.config[:adhearsion_xmpp].jid      = nil
-  Adhearsion.config[:adhearsion_xmpp].password = nil
-  Adhearsion.config[:adhearsion_xmpp].server   = "localhost"
-  Adhearsion.config[:adhearsion_xmpp].port     = 5222
+  Adhearsion.config[:xmpp].jid      = nil
+  Adhearsion.config[:xmpp].password = nil
+  Adhearsion.config[:xmpp].server   = "localhost"
+  Adhearsion.config[:xmpp].port     = 5222
 end
