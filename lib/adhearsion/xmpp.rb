@@ -34,7 +34,7 @@ module Adhearsion
 
     class << self
       def method_missing(m, *args, &block)
-        m.send m, *args, &block
+        plugin.connection.send m, *args, &block
       end
     end
   end
