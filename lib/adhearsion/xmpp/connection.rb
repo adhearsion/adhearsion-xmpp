@@ -1,5 +1,5 @@
 module Adhearsion
-  class XMPP < Adhearsion::Plugin
+  class XMPP
     module Connection
 
       class << self
