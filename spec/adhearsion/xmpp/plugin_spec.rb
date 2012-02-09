@@ -63,11 +63,6 @@ describe Adhearsion::XMPP::Plugin do
   end
 
   describe "when re-using Punchblock's connection" do
-    it "should delegate the client accessor to PunchblockPlugin" do
-      Adhearsion::PunchblockPlugin.should_receive(:client).and_return :mock_client
-      Adhearsion::XMPP.client.should be :mock_client
-    end
-
     it "should not attempt to start Punchblock's client on start" do
       pending
     end
