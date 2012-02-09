@@ -1,6 +1,7 @@
 require "adhearsion"
 require "active_support/dependencies/autoload"
 require "adhearsion/xmpp/version"
+require "adhearsion/xmpp/plugin" # Because the autoloader is lazy this never gets loaded!
 
 module Adhearsion
   ##
@@ -8,7 +9,7 @@ module Adhearsion
   # and includes a hook to start the XMPP service in Adhearsion initialization process
   class XMPP
     extend ActiveSupport::Autoload
-    autoload :Plugin
+    #autoload :Plugin
     autoload :Connection
 
     cattr_accessor :plugin
