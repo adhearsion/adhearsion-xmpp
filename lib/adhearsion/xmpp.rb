@@ -16,7 +16,6 @@ module Adhearsion
 
     class << self
       def register_handlers(&block)
-        puts "Saving handlers with block"
         self.handlers = block
       end
 
