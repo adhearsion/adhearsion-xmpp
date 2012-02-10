@@ -1,3 +1,5 @@
+require 'blather/client'
+
 module Adhearsion
   class XMPP
     module Connection
