@@ -17,11 +17,11 @@ describe Adhearsion::XMPP::Plugin do
     end
 
     it "should configure properly the server" do
-      Adhearsion.config[:xmpp].server.should == "localhost"
+      Adhearsion.config[:xmpp].server.should be_nil
     end
 
     it "should configure properly the port" do
-      Adhearsion.config[:xmpp].port.should == 5222
+      Adhearsion.config[:xmpp].port.should be_nil
     end
 
   end
@@ -63,9 +63,16 @@ describe Adhearsion::XMPP::Plugin do
   end
 
   describe "when re-using Punchblock's connection" do
-    it "should delegate the client accessor to PunchblockPlugin" do
-      Adhearsion::PunchblockPlugin.should_receive(:client).and_return :mock_client
-      Adhearsion::XMPP.client.should be :mock_client
+    it "should not attempt to start Punchblock's client on start" do
+      pending
     end
+
+    it "should not attempt to start Punchblock's client on stop" do
+      pending
+    end
+  end
+
+  describe "when using a separate Blather connection" do
+    pending
   end
 end
