@@ -17,11 +17,11 @@ describe Adhearsion::XMPP::Plugin do
     end
 
     it "should configure properly the server" do
-      Adhearsion.config[:xmpp].server.should == "localhost"
+      Adhearsion.config[:xmpp].server.should be_nil
     end
 
     it "should configure properly the port" do
-      Adhearsion.config[:xmpp].port.should == 5222
+      Adhearsion.config[:xmpp].port.should be_nil
     end
 
   end
