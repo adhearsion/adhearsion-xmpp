@@ -14,7 +14,7 @@ module Adhearsion
       # Include the XMPP service in plugins initialization process
       init :xmpp, :after => :punchblock do
         Adhearsion::XMPP.plugin = Adhearsion::XMPP::Plugin.new
-        Adhearsion::PunchblockPlugin.connection.register_handlers &Adhearsion::XMPP.handlers unless Adhearsion::XMPP.handlers.nil?
+        connection.register_handlers &Adhearsion::XMPP.handlers unless Adhearsion::XMPP.handlers.nil?
       end
 
       run :xmpp do
