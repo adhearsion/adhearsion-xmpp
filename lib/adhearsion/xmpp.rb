@@ -17,6 +17,10 @@ module Adhearsion
     class << self
       def register_handlers(&block)
         self.handlers = block
+        unless plugin.nil?
+          # Plugin has already initialized.  Add these handlers directly.
+          plugin.connection.register_handlers &block unless block.nil?
+        end
       end
 
       def method_missing(m, *args, &block)
