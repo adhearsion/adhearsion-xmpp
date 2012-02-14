@@ -16,10 +16,14 @@ module Adhearsion
 
     class << self
       def register_handlers(&block)
-        self.handlers = block
-        unless plugin.nil?
-          # Plugin has already initialized.  Add these handlers directly.
-          plugin.connection.register_handlers &block unless block.nil?
+        raise ArgumentError, "You must supply a block" unless block_given?
+        self.handlers ||= ThreadSafeArray.new
+        handlers << block
+        handlers.each do |handler|
+          unless plugin.nil?
+            # Plugin has already initialized.  Add these handlers directly.
+            plugin.connection.instance_eval &handler
+          end
         end
       end
 
