@@ -21,7 +21,8 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "activesupport", [">= 3.0.10"]
   s.add_runtime_dependency "i18n", ">= 0.5.0"
   s.add_runtime_dependency "blather", ">= 0.5.7"
+  s.add_runtime_dependency "jruby-openssl" if defined?(JRUBY_VERSION)
 
-  s.add_development_dependency "rspec", ">= 2.7.0"
+  s.add_development_dependency "rspec", "~> 2.7.0"
   s.add_development_dependency "rake", ">= 0.9.2"
 end
