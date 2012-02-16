@@ -15,7 +15,7 @@ module Adhearsion
       init :xmpp, :after => :punchblock do
         Adhearsion::XMPP.plugin = Adhearsion::XMPP::Plugin.new
         Adhearsion::XMPP.handlers.each do |handler|
-          connection.instance_eval &handler
+          Adhearsion::XMPP.connection.instance_eval &handler
         end unless Adhearsion::XMPP.handlers.nil?
       end
 

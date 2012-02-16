@@ -27,6 +27,8 @@ module Adhearsion
         end
       end
 
+      delegate :connection, :to => :plugin
+
       def method_missing(m, *args, &block)
         plugin.connection.send m, *args, &block
       end
