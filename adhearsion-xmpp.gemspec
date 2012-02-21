@@ -5,11 +5,11 @@ require "adhearsion/xmpp/version"
 Gem::Specification.new do |s|
   s.name        = "adhearsion-xmpp"
   s.version     = Adhearsion::XMPP::VERSION
-  s.authors     = ["juandebravo", "Ben Langfeld", "Jason Goecke"]
-  s.email       = ["juandebravo@gmail.com", "ben@langfeld.me", "jsgoecke@voxeo.com"]
-  s.homepage    = ""
-  s.summary     = %q{This gem is an Adhearsion plugin that handles the XMPP related stuff}
-  s.description = %q{This gem is an Adhearsion plugin that handles the XMPP related stuff}
+  s.authors     = ["Juan de Bravo", "Ben Langfeld", "Jason Goecke", "Ben Klang"]
+  s.email       = ["juandebravo@gmail.com", "ben@langfeld.me", "jsgoecke@voxeo.com", "bklang@mojolingo.com"]
+  s.homepage    = "https://github.com/adhearsion/adhearsion-xmpp"
+  s.summary     = %q{Send and receive XMPP messages in your Adhearsion application}
+  s.description = %q{This gem provides the XMPP plugin to Adhearsion, allowing your Adhearsion application to send and receive messages and react to presence changes.}
 
   s.rubyforge_project = "adhearsion-xmpp"
 
