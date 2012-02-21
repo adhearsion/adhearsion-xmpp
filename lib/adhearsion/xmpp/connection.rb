@@ -1,5 +1,7 @@
-module AhnXMPP
-  class Plugin
+require 'blather/client'
+
+module Adhearsion
+  class XMPP
     module Connection
 
       class << self
