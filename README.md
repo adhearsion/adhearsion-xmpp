@@ -27,7 +27,7 @@ In your Adhearsion app configuration file, add the following values:
 Adhearsion.config do |config|
   config.xmpp.jid      = "valid-jid"
   config.xmpp.password = "valid-password"
-  config.xmpp.host     = "valid-host"
+  config.xmpp.server   = "valid-server"
   config.xmpp.port     = "valid-port"
 end
 ```
