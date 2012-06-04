@@ -1,4 +1,5 @@
-require 'blather/client'
+require 'blather/client/client'
+require 'blather/client/dsl'
 
 module Adhearsion
   class XMPP
