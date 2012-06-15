@@ -4,11 +4,11 @@ module Adhearsion
 
       # Default configuration for XMPP connection.
       config :xmpp do
-        use_punchblock true       , :desc => "Re-use Punchblock's XMPP connection. Boolean."
-        jid            nil        , :desc => "Client/component JID to connect to. String."
-        password       nil        , :desc => "Password identifier. String."
-        server         nil        , :desc => "XMPP server hostname. May be omitted if server can be determined from JID. String."
-        port           nil        , :desc => "XMPP server port. May be omitted if server can be determined from JID. Integer."
+        use_punchblock true,  :desc => "Re-use Punchblock's XMPP connection. Boolean."
+        jid            nil,   :desc => "Client/component JID to connect to. String."
+        password       nil,   :desc => "Password identifier. String."
+        server         nil,   :desc => "XMPP server hostname. May be omitted if server can be determined from JID. String."
+        port           nil,   :desc => "XMPP server port. May be omitted if server can be determined from JID. Integer."
       end
 
       # Include the XMPP service in plugins initialization process
@@ -19,50 +19,26 @@ module Adhearsion
         end unless Adhearsion::XMPP.handlers.nil?
       end
 
-      run :xmpp do
-        Adhearsion::XMPP.plugin.run_plugin
-      end
+      delegate :config, :to => self
+      delegate :use_punchblock, :to => :config
 
       def initialize
-        @config ||= Adhearsion.config[:xmpp]
-        init_blather unless @config.use_punchblock
+        init_blather config.jid, config.password, config.server, config.port unless use_punchblock
       end
 
-      def run_plugin
-        run_blather unless @config.use_punchblock
-      end
+      def init_blather(jid, password, server, port)
+        raise "Must supply a jid to the XMPP configuration" unless jid.present?
+        raise "Must supply a password to the XMPP configuration" unless password.present?
 
-      def start_punchblock
-        # Nothing needed here; everything is delegated
-        nil
-      end
-
-      def init_blather
-        raise "Must supply a jid argument to the XMPP configuration" if (@config.jid.nil? || @config.jid.empty?)
-        raise "Must supply a password argument to the XMPP configuration" if (@config.password.nil? || @config.password.empty?)
-
-        Connection.extend Blather::DSL
-        Connection.start @config.jid, @config.password, @config.server, @config.port
-      end
-
-      ##
-      # Stop the XMPP connection
-      def stop
-        stop_blather unless @config.use_punchblock
-      end
-
-      def stop_blather
-        Connection.stop
+        connection.setup jid, password, server, port
       end
 
       def connection
-        @config.use_punchblock ?
-          PunchblockPlugin.connection :
-          Connection
-      end
-
-      def client
-        @config.use_punchblock ? PunchblockPlugin.client : Connection.client
+        if use_punchblock
+          PunchblockPlugin.connection
+        else
+          @connection ||= Connection.new
+        end
       end
     end
   end
