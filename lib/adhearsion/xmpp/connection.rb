@@ -11,16 +11,30 @@ module Adhearsion
         Blather.logger = logger
         Blather.default_log_level = :trace if Blather.respond_to? :default_log_level
         register_default_client_handlers
+        @shutting_down = false
         Adhearsion::Events.after_initialized { connect }
-        Adhearsion::Events.shutdown { shutdown }
+        Adhearsion::Events.shutdown do
+          @shutting_down = true
+          shutdown
+        end
       end
 
       private
 
       def connect
-        logger.info "Connecting to XMPP"
         Adhearsion::Process.important_threads << Thread.new do
-          EventMachine.run { client.connect }
+          begin
+            until @shutting_down
+              logger.info "Connecting to XMPP"
+              EventMachine.run { client.connect }
+              logger.info "XMPP connection closed"
+            end
+          rescue Blather::Stream::ConnectionFailed
+            reconnect_timer = Adhearsion.config.punchblock.reconnect_timer
+            logger.error "XMPP connection failed. Retrying connection in #{reconnect_timer}s"
+            sleep reconnect_timer
+            retry
+          end
         end
       end
 
