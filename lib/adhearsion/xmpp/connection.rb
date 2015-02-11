@@ -34,6 +34,9 @@ module Adhearsion
             logger.error "XMPP connection failed. Retrying connection in #{reconnect_timer}s"
             sleep reconnect_timer
             retry
+          rescue => e
+            logger.fatal e
+            raise
           end
         end
       end
