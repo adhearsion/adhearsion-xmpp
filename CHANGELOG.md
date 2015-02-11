@@ -1,4 +1,6 @@
 # develop
+
+# v1.0.2
   * Bugfix: Reconnect after connection failures or connections dropping
 
 # v1.0.1
