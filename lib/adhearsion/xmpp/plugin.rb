@@ -4,6 +4,7 @@ module Adhearsion
 
       # Default configuration for XMPP connection.
       config :xmpp do
+        enabled        true,  :desc => "Enable or disable the connection", :transform => Proc.new { |v| v == 'true' }
         use_punchblock true,  :desc => "Re-use Punchblock's XMPP connection. Boolean."
         jid            nil,   :desc => "Client/component JID to connect to. String."
         password       nil,   :desc => "Password identifier. String."
@@ -13,10 +14,12 @@ module Adhearsion
 
       # Include the XMPP service in plugins initialization process
       init :xmpp, :after => :punchblock do
-        Adhearsion::XMPP.plugin = Adhearsion::XMPP::Plugin.new
-        Adhearsion::XMPP.handlers.each do |handler|
-          Adhearsion::XMPP.connection.instance_eval &handler
-        end unless Adhearsion::XMPP.handlers.nil?
+        if config.enabled
+          Adhearsion::XMPP.plugin = Adhearsion::XMPP::Plugin.new
+          Adhearsion::XMPP.handlers.each do |handler|
+            Adhearsion::XMPP.connection.instance_eval &handler
+          end unless Adhearsion::XMPP.handlers.nil?
+        end
       end
 
       delegate :config, :to => self
