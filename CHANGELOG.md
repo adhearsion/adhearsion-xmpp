@@ -1,4 +1,6 @@
 # develop
+
+# v1.1.0
   * Feature: Connection can be disabled via configuration
 
 # v1.0.2
